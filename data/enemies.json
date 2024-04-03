@@ -1,0 +1,34 @@
+{
+    "Spider": {
+        "Health": 10,
+        "Name": "Spider",
+        "BaseDamage": 0,
+        "Tier": 1,
+        "Cards": {
+            "BasicAttack": {
+                "Name": "Bite",
+                "Damage": 1,
+                "Type": "Physical",
+                "Rarity": "Common",
+                "Chance": "VeryHigh"
+            },
+            "SpecialAttack": {
+                "Name": "Venom",
+                "Damage": 3,
+                "Type": "Poison",
+                "Rarity": "Rare",
+                "Chance": "Normal"
+            }
+        }
+    },
+    "Snake": {
+        "Health": 10,
+        "Name": "Snake",
+        "Damage": 2
+    },
+    "Goblin": {
+        "Health": 15,
+        "Name": "Goblin",
+        "Damage": 3
+    }
+}

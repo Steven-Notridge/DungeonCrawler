@@ -1,0 +1,40 @@
+{
+  "Warrior": {
+    "Health": 10,
+    "BaseDamage": 1,
+    "Strength": 2,
+    "Dexterity": 0,
+    "Intelligence": 0,
+    "Defence": 0,
+    "Critical": 5,
+    "Vitality": 0,
+    "StartingCards": {
+      "Stab": {
+        "Damage": 1,
+        "Rarity": "Common",
+        "Type": "Physical"
+        },
+      "Slash": {
+        "Damage": 3,
+        "Rarity": "Uncommon",
+        "Type": "Physical"
+      },
+      "Block": {
+        "Damage": 0,
+        "Rarity": "Common",
+        "Type": "Defensive",
+        "Block": "True"
+      }
+    }
+  },
+  "Mage": {
+    "Health": 10,
+    "BaseDamage": 1,
+    "Strength": 0,
+    "Dexterity": 0,
+    "Intelligence": 2,
+    "Defence": 0,
+    "Critical": 5,
+    "Vitality": 0
+  }
+}
