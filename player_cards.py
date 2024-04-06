@@ -55,9 +55,9 @@ class Player_Cards:
 
 
         # Show initial cards.
-        print(f"{self.random_card1_name}")
-        print(f"{self.random_card2_name}")
-        print(f"{self.random_card3_name}")
+        #print(f"{self.random_card1_name}")
+        #print(f"{self.random_card2_name}")
+        #print(f"{self.random_card3_name}")
 
         # Reroll card 2 if its the same as card 1
         if choose_random_card2 == choose_random_card1:
@@ -69,10 +69,14 @@ class Player_Cards:
                 self.random_card2_damage = selected_card2["Damage"]
                 self.random_card2_type = selected_card2["Type"]
                 self.random_card2_rarity = selected_card2["Rarity"]
-                print(f"{self.random_card2_name}")
+                #print(f"{self.random_card2_name}")
 
                 if choose_random_card2 != choose_random_card1:
-                    return True
+                    card2 = [self.random_card2_name, self.random_card2_damage, self.random_card2_type,
+                             self.random_card2_rarity]
+                    print("Inside random card 2 if rerolled.")
+                    print(card2)
+                    return card2
 
         # Reroll card 3 if its the same as card 1
         if choose_random_card3 == choose_random_card1:
@@ -86,9 +90,11 @@ class Player_Cards:
                     self.random_card3_damage = selected_card3["Damage"]
                     self.random_card3_type = selected_card3["Type"]
                     self.random_card3_rarity = selected_card3["Rarity"]
-                    print(f"{self.random_card3_name}")
+                    #print(f"{self.random_card3_name}")
                     if choose_random_card3 != choose_random_card1:
-                        return True
+                        card3 = [self.random_card3_name, self.random_card3_damage, self.random_card3_type,
+                                 self.random_card3_rarity]
+                        return card3
 
         # Check if Card 3 is the same as 2. This needs to happen in this order as 2 will be chosen before 3 and prevent an additional if statement.
         if choose_random_card3 == choose_random_card2:
@@ -101,10 +107,19 @@ class Player_Cards:
                     self.random_card3_damage = selected_card3["Damage"]
                     self.random_card3_type = selected_card3["Type"]
                     self.random_card3_rarity = selected_card3["Rarity"]
-                    print(f"{self.random_card3_name}")
+                    #print(f"{self.random_card3_name}")
 
                     if choose_random_card3 != choose_random_card2:
-                        return True
+                        card3 = [self.random_card3_name, self.random_card3_damage, self.random_card3_type,
+                                 self.random_card3_rarity]
+                        return card3
+
+
+        print("end of randomise cards")
+
+        print(f"{card1}")
+        print(card2)
+        print(card3)
 
         return card1, card2, card3
 

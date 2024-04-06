@@ -1,12 +1,17 @@
 import random
 import json
 
+from player_cards import Player_Cards
 
+player_cards = Player_Cards()
 # Class
 class Player:
     def __init__(self, character_type):
         self.character_type = character_type
         self.load_attributes()
+
+        # Make sure player has a clean deck.
+        self.players_cards = None
 
     def load_attributes(self):
         with open('data/classes.json') as f:
@@ -25,6 +30,7 @@ class Player:
             self.defence = attributes["Defence"]
             self.crit_chance = attributes["Critical"]
             self.vitality = attributes["Vitality"]
+            self.required_xp = self.xp_calculations()
             self.xp = 0
 
         else:
@@ -37,6 +43,27 @@ class Player:
                 return choice
             else:
                 print("Invalid choice. Please choose either 'Warrior' or 'Mage'.")
+
+    def randomise_cards(self):
+        # Only randomize cards if they haven't been randomized yet
+        if self.players_cards is None:
+            self.players_cards = player_cards.randomise_cards()
+        return self.players_cards
+
+    def play_card(self):
+        # Call randomise_cards if cards haven't been randomized yet
+        if self.players_cards is None:
+            self.randomise_cards()
+
+        # Access the cards from the stored result and store them in card1
+        card1 = self.players_cards[0]
+        card2 = self.players_cards[1]
+        card3 = self.players_cards[2]
+
+        # Example usage of the cards
+        cards = card1, card2, card3
+        print(cards)
+        print(self.players_cards)
 
     def attack(self):
         attack_damage = self.base_damage
@@ -56,20 +83,21 @@ class Player:
         else:
             print(f"You take {damage} damage! Your remaining hp: {self.current_health} / {self.max_hp}")
 
-    def xp_calculations(self, required_xp):
+    def xp_calculations(self):
         self.required_xp = 10 * 1.5 * self.level
-        return required_xp
+        return self.required_xp
 
     def level_up(self):
         if self.xp >= self.required_xp:
             print(f"Congratulations! You have reached Level {self.level + 1}.")
-            self.xp_calculations()
             self.level += 1
+            self.xp_calculations()
             self.xp = 0
             return True, self.required_xp
         else:
             print(f"Required XP till next level: {self.required_xp}")
             return False
+
     def increase_stat(self, stat):
         if self.level_up():
             if hasattr(self, stat):
@@ -85,4 +113,4 @@ class Player:
                 return self
         else:
             print(f"Invalid stat: {stat}. Please choose a valid stat.")
-            return self
+            # return self

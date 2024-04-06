@@ -24,11 +24,45 @@
     "Snake": {
         "Health": 10,
         "Name": "Snake",
-        "Damage": 2
+        "BaseDamage": 0,
+        "Tier": 1,
+        "Cards": {
+            "BasicAttack": {
+                "Name": "Bite",
+                "Damage": 1,
+                "Type": "Physical",
+                "Rarity": "Common",
+                "Chance": "VeryHigh"
+            },
+            "SpecialAttack": {
+                "Name": "Acid Spit",
+                "Damage": 3,
+                "Type": "Poison",
+                "Rarity": "Rare",
+                "Chance": "Normal"
+            }
+        }
     },
     "Goblin": {
         "Health": 15,
         "Name": "Goblin",
-        "Damage": 3
+        "BaseDamage": 0,
+        "Tier": 1,
+        "Cards": {
+            "BasicAttack": {
+                "Name": "Smash",
+                "Damage": 1,
+                "Type": "Physical",
+                "Rarity": "Common",
+                "Chance": "VeryHigh"
+            },
+            "SpecialAttack": {
+                "Name": "Clobber",
+                "Damage": 4,
+                "Type": "Physical",
+                "Rarity": "Rare",
+                "Chance": "Normal"
+            }
+        }
     }
 }
